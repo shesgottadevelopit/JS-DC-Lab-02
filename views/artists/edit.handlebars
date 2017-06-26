@@ -1,0 +1,38 @@
+<h2>Edit Artist Info</h2>
+
+<section>
+    <form class="" action="/artists/edit/{{artist.id}}" method="post">
+
+        <div>
+        <label for="artist">Artist or Band Name:</label>
+        <input type="text" name="name" value="{{artist.name}}" placeholder="Add the artist name">
+        </div>
+
+        <div>
+        <label for="genres">Genre</label>
+        <select class="" name="genres" multiple>
+            {{!-- <option name="genre" value="Pop" {{#if artist.genre}}selected{{/if}}>Pop</option> --}}
+            <option name="genre" value="Pop">Pop</option>
+            <option name="genre" value="R&B">R&B</option>
+            <option name="genre" value="Rock">Rock</option>
+            <option name="genre" value="Alternative">Alternative</option>
+            <option name="genre" value="Json">Use a json to import all genres</option>
+        </select>
+        </div>
+
+        <div>
+        <label for="">Upload artist image</label>
+        <input type="text" name="imgurl">
+        </div>
+
+        <div>
+            <label for="artist-description">Description/Info</label>
+            <textarea name="description" rows="8" cols="80">{{artist.description}}</textarea>
+
+        </div>
+        {{!-- <button type="submit" name="button">Add New</button> --}}
+        <input type="submit" name="submit" value="Edit Artist Info">
+
+
+    </form>
+</section>

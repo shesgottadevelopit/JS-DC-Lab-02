@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+
+<section>
+    {{#each artists}}
+     <article class="artist-{{name}}">
+        <div><a href="/artists/{{id}}">{{name}} || {{id}}</a></div>
+        {{#each genre}}
+            <li>{{this}}</li>
+
+        {{/each}}
+        {{!-- <div>{{genre}}</div> --}}
+        <div>{{image}}</div>
+        <div>{{description}}</div>
+        <hr>
+    </article>
+    {{/each}}
+</section>

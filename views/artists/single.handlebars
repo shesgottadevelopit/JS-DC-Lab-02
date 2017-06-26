@@ -1,0 +1,41 @@
+{{!-- {{#title}} Artist Page {{/title}} --}}
+
+{{#> artist-block title="Artist Page"}}
+
+<div class="artist-info">
+    <figure>
+        {{!-- insert image --}}
+        {{artist.imageurl}}
+    </figure>
+    <h2>{{artist.name}}</h2>
+
+    <div>
+        <h4>Genre</h4>
+        {{#each artist.genre}}
+            <span>{{this}}</span>
+
+        {{/each}}
+    </div>
+
+    <article class="info">
+        <h4>Description:</h4>
+        {{!-- insert description if needed  --}}
+        <p>{{artist.description}}</p>
+    </article>
+
+    <section>
+        {{!-- for editing --}}
+        {{!-- <input type="submit" name="submit" value="Edit" formmethod="get" formaction="/artists/edit/{{artist.id}}">
+        <button type="submit" name="button">Edit</button> --}}
+        <a href="/artists/edit/{{artist.id}}"><input type="submit" name="submit" value="Edit" formaction="/artists/edit/{{artist.id}}"></a>
+
+        {{!-- <button type="submit" name="button">Delete</button> --}}
+        <a href="/artists/delete/{{artist.id}}"><input type="submit" name="submit" value="Delete"></a>
+    </section>
+</div>
+<hr>
+
+{{!-- Artist page comments; see partial--}}
+{{> comments}}
+
+{{/artist-block}}

@@ -1,0 +1,26 @@
+{
+  "name": "JS-DC-Lab-02",
+  "version": "1.0.0",
+  "description": "Tunr is the worlds #1 music web app. Those Spotify haters can't keep up with us!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shesgottadevelopit/JS-DC-Lab-02.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shesgottadevelopit/JS-DC-Lab-02/issues"
+  },
+  "homepage": "https://github.com/shesgottadevelopit/JS-DC-Lab-02#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.10.8"
+  }
+}
