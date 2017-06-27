@@ -1,0 +1,25 @@
+.img-container-index {
+		height: 250px;
+}
+
+.img-container-index img {
+		object-fit: cover;
+		height: 250px;
+		width: 100%;
+}
+
+.genre-styles {
+		padding: .25rem;
+}
+
+.hack-body {
+		display: flex;
+		min-height: 100vh;
+		flex-direction: column;
+}
+
+.hack-content {
+		flex: 1;
+}
+
+/*# sourceMappingURL=styles.css.map */

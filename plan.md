@@ -7,29 +7,31 @@
 - [x] setup server
 - [x] setup templating engine
 - [x] configure routers
-- [ ] map out content
+- [x] map out content
     - [x] Figure out a way to incorporate partials
-    - [ ] Add Stylesheet and static image
-    - [ ] Page Types:
+    - [x] Add Stylesheet and static images
+    - [x] Add custom style sheet
+    - [x] Page Types:
         - [x] Home page listing all artists/bands
             - includes band name + image
         - [x] Individual artist/band page
             - includes specific information about each artist/band
         - [x] Add New Artist page
             - includes a form with input for artist/band name + genre + image link?
-            - [ ] include validation for form fields
+            - [x] include validation for form fields
         - [x] Edit existing artist page
             - includes a form with input for editing existing artist/band name + genre + image links?
-            - [ ] include validation for form fields
+            - [x] include validation for form fields
         - [x] Comments page or partial
             - includes comment author + date + description
-            - [ ] include validation for form fields
+            - [x] include validation for form fields
 - [x] connect database
 - [x] model data for database
     - [x] artist schema
-        - [ ] **figure out how to add image data**
+        - [ ] **figure out how to add image data through uploads - progressive enhancement**
+        - [x] add image data url
     - [x] comments schema
-    - [ ] song schema
+    - [ ] song schema **progressive enhancement**
     -
 
 ## Unrelated notes:

@@ -1,12 +1,14 @@
-<h5>Artist Page Comments</h5>
-<div class="comment-section">
+<h4>Artist Page Comments</h4>
+<div class="comment-section mb-4">
     {{#if artist.comments}}
+    <div>There are {{artist.comments.length}} comments</div>
+    <hr>
         {{#each artist.comments}}
-            <article class="comment-{{@index}}">
+            <article class="comment-{{@index}} bg-faded p-2 mb-2">
                 <div>
-                    <span>{{this.commentauthor}}</span>
+                    <span><span class="font-weight-bold text-primary">Comment by:</span> {{this.commentauthor}}</span>
                     <br>
-                    <span>{{this.date}}</span>
+                    <span>Date/Time: {{this.date}}</span>
                     <p>{{this.commenttext}}</p>
                 </div>
             </article>
@@ -17,17 +19,19 @@
     {{/if}}
     <section>
         {{!-- Comment Form  --}}
+
+        <h5>Comment Form</h5>
         <form class="" action="/artist/{{id}}" method="post">
-            <div>
+            <div class="form-group">
                 <label for="commentauthor">Name</label>
-                <input type="text" name="commentauthor" value="" placeholder="name">
+                <input class="form-control" type="text" name="commentauthor" value="" placeholder="Enter Your Name" required>
             </div>
-            <div>
+            <div class="form-group">
                 <label for="commenttext">Comment Area</label>
-                <textarea name="commenttext" rows="8" cols="80"></textarea>
+                <textarea class="form-control" name="commenttext" rows="8" cols="80" placeholder="Enter Your Comment" required></textarea>
             </div>
             <div>
-                <a href="/artists/{{artist.id}}"><input type="submit" name="submit" value="Add Comment" formaction="/artists/{{artist.id}}"></a>
+                <a href="/artists/{{artist.id}}"><input class="btn btn-secondary btn-sm" type="submit" name="submit" value="Add Comment" formaction="/artists/{{artist.id}}"></a>
             </div>
 
         </form>

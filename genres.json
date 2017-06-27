@@ -1,8 +1,17 @@
 {
     "genres": [
-        {
-            "genre": "Pop",
-            "value": "Pop"
-        }
+        {"name": "Pop"},
+        {"name": "R&B"},
+        {"name": "Hip-hop"},
+        {"name": "Rock"},
+        {"name": "Funk/Soul"},
+        {"name": "Blues"},
+        {"name": "Classical"},
+        {"name": "Country"},
+        {"name": "Electronica"},
+        {"name": "Jazz"},
+        {"name": "Latin"},
+        {"name": "Reggae"},
+        {"name": "Alternative"}
     ]
 }

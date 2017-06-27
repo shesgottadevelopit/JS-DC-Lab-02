@@ -1,41 +1,43 @@
-{{!-- {{#title}} Artist Page {{/title}} --}}
+<section class="mt-4">
+    <h2>Artist Page for: {{artist.name}}</h2>
+    {{!-- {{#title}} Artist Page {{/title}} --}}
 
-{{#> artist-block title="Artist Page"}}
+    {{#> artist-block title="Artist Page"}}
 
-<div class="artist-info">
-    <figure>
-        {{!-- insert image --}}
-        {{artist.imageurl}}
-    </figure>
-    <h2>{{artist.name}}</h2>
+    <div class="artist-info">
+        <figure>
+            {{!-- insert image --}}
+            <img src="{{artist.imageurl}}" alt="">
 
-    <div>
-        <h4>Genre</h4>
-        {{#each artist.genre}}
-            <span>{{this}}</span>
+        </figure>
 
-        {{/each}}
+        <div>
+            <h4>Genre</h4>
+            <div class="mt-3">
+            {{#each artist.genre}}
+                <span class="bg-warning text-white genre-styles">{{this}}</span>
+
+            {{/each}}
+            </div>
+        </div>
+
+        <article class="info mt-3">
+            <h4>Description:</h4>
+            {{!-- insert description if needed  --}}
+            <p class="mt-3">{{artist.description}}</p>
+        </article>
+
+        {{!-- edit buttons --}}
+        <section>
+            <a href="/artists/edit/{{artist.id}}"><input class="btn btn-primary btn-sm" type="submit" name="submit" value="Edit Artist Info"></a>
+            <a href="/artists/delete/{{artist.id}}"><input class="btn btn-danger btn-sm" type="submit" name="submit" value="Delete Artist"></a>
+        </section>
     </div>
+    <hr>
 
-    <article class="info">
-        <h4>Description:</h4>
-        {{!-- insert description if needed  --}}
-        <p>{{artist.description}}</p>
-    </article>
+    {{!-- Artist page comments; see partial--}}
+    {{> comments}}
 
-    <section>
-        {{!-- for editing --}}
-        {{!-- <input type="submit" name="submit" value="Edit" formmethod="get" formaction="/artists/edit/{{artist.id}}">
-        <button type="submit" name="button">Edit</button> --}}
-        <a href="/artists/edit/{{artist.id}}"><input type="submit" name="submit" value="Edit" formaction="/artists/edit/{{artist.id}}"></a>
+    {{/artist-block}}
 
-        {{!-- <button type="submit" name="button">Delete</button> --}}
-        <a href="/artists/delete/{{artist.id}}"><input type="submit" name="submit" value="Delete"></a>
-    </section>
-</div>
-<hr>
-
-{{!-- Artist page comments; see partial--}}
-{{> comments}}
-
-{{/artist-block}}
+</section>

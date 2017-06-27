@@ -1,6 +1,8 @@
 const express = require('express');
 const Artist = require('../models/Artists.js');
 const artistRouter = express.Router()
+const genres = require('../genres.json');
+const genre = genres['genres'];
 
 // artist router
 
@@ -9,7 +11,7 @@ const artistRouter = express.Router()
 // })
 
 artistRouter.get('/add', function ( req, res) {
-    res.render('artists/add')
+    res.render('artists/add', {genre})
 }).post('/add', function( req, res) {
 
     const newArtist = new Artist({
@@ -18,6 +20,14 @@ artistRouter.get('/add', function ( req, res) {
         description: req.body.description,
         imageurl: req.body.imgurl
     })
+
+    if (newArtist.imageurl !== '') {
+        return;
+    }
+    if (newArtist.imageurl === '') {
+        // newArtist.imageurl = 'http://via.placeholder.com/350x350'
+        newArtist.imageurl = '../img/artist-placeholder-grey.svg'
+    }
     newArtist.save()
     res.redirect('/')
 
@@ -31,7 +41,7 @@ artistRouter.get('/add', function ( req, res) {
 // edit artist path
 artistRouter.get('/edit/:id', function( req, res) {
     Artist.findOne({'_id': req.params.id}, function( err, artist) {
-        res.render('artists/edit', {artist})
+        res.render('artists/edit', {artist, genre})
     })
 }).post('/edit/:id', function(req, res) {
     Artist.findOne({'_id': req.params.id}, function(err, artist) {
@@ -39,6 +49,16 @@ artistRouter.get('/edit/:id', function( req, res) {
         artist.name = req.body.name,
         artist.genre = req.body.genres,
         artist.description = req.body.description,
+        artist.imageurl = req.body.imgurl
+
+
+        if (artist.imageurl !== '') {
+            return;
+        }
+        if (artist.imageurl === '') {
+            // newArtist.imageurl = 'http://via.placeholder.com/350x350'
+            artist.imageurl = '../img/artist-placeholder-grey.svg'
+        }
 
         artist.save();
 

@@ -5,9 +5,9 @@ const indexRouter = express.Router()
 
 // index router
 indexRouter.get('/', function( req, res ) {
-    
+
     Artist.find({}, function (err, artists) {
-        res.render('index', {title: 'Index Page', artists})
+        res.render('index', {title: 'Explore Artists', artists})
     })
 })
 

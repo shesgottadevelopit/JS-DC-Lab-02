@@ -3,35 +3,32 @@
 <section>
     <form class="" action="/artists/edit/{{artist.id}}" method="post">
 
-        <div>
+        <div class="form-group">
         <label for="artist">Artist or Band Name:</label>
-        <input type="text" name="name" value="{{artist.name}}" placeholder="Add the artist name">
+        <input class="form-control" type="text" name="name" value="{{artist.name}}" placeholder="Add the artist or band name" required>
         </div>
 
-        <div>
-        <label for="genres">Genre</label>
-        <select class="" name="genres" multiple>
+        <div class="form-group">
+        <label for="genre">Genre</label>
+        <select class="genre-options form-control" name="genres" multiple>
+            {{#each genre}}
+              <option name="genre" value="{{this.name}}">{{this.name}}</option>
+            {{/each}}
             {{!-- <option name="genre" value="Pop" {{#if artist.genre}}selected{{/if}}>Pop</option> --}}
-            <option name="genre" value="Pop">Pop</option>
-            <option name="genre" value="R&B">R&B</option>
-            <option name="genre" value="Rock">Rock</option>
-            <option name="genre" value="Alternative">Alternative</option>
-            <option name="genre" value="Json">Use a json to import all genres</option>
         </select>
         </div>
 
-        <div>
+        <div class="form-group">
         <label for="">Upload artist image</label>
-        <input type="text" name="imgurl">
+        <input class="form-control" type="text" name="imgurl" value="{{artist.imageurl}}" placeholder="{{artist.imageurl}}">
         </div>
 
-        <div>
-            <label for="artist-description">Description/Info</label>
-            <textarea name="description" rows="8" cols="80">{{artist.description}}</textarea>
+        <div class="form-group">
+            <label for="description">Description/Info</label>
+            <textarea class="form-control" name="description" rows="8" cols="80" required>{{artist.description}}</textarea>
 
         </div>
-        {{!-- <button type="submit" name="button">Add New</button> --}}
-        <input type="submit" name="submit" value="Edit Artist Info">
+        <input class="btn btn-primary btn-sm" type="submit" name="submit" value="Edit Artist Info">
 
 
     </form>

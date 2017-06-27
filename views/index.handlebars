@@ -1,17 +1,28 @@
-<h1>{{title}}</h1>
 
-<section>
+<section class="jumbotron mt-3">
+<h1 class="display-3">{{title}}</h1>
+<article class="">
+    <p>Welcome to our church. Whatever your faith or background our doors are open to you, both literally and virtually. Our beautiful church has services every day and is often open throughout the day for people to come and visit and sit in quiet reflection or to admire the stunning architecture of the building. You can also use our website to find out more about our work, what we have going on and details of people and organisations to contact if you need help or support with anything.As well as in the church and on our website, you can also find us out and about in the community. </p>
+</article>
+</section>
+<section class="row">
     {{#each artists}}
-     <article class="artist-{{name}}">
-        <div><a href="/artists/{{id}}">{{name}} || {{id}}</a></div>
-        {{#each genre}}
-            <li>{{this}}</li>
+    <div class="col-sm-6 col-md-4 mb-4">
+        <article class="artist-{{name}}">
+           <div class="img-container-index card-img-top"><img src="{{imageurl}}" alt="{{imageurl}}"></div>
+           <div><h4><a href="/artists/{{id}}">{{name}}</a></h4></div>
+           <div class="mt-3">
+           {{#each genre}}
+               <span class="bg-warning text-white genre-styles">{{this}}</span>
 
-        {{/each}}
-        {{!-- <div>{{genre}}</div> --}}
-        <div>{{image}}</div>
-        <div>{{description}}</div>
-        <hr>
-    </article>
+           {{/each}}
+           </div>
+           <div class="mt-3">
+               <h6>About the artist:</h6>
+               <div>{{description}}</div>
+
+           </div>
+       </article>
+    </div>
     {{/each}}
 </section>

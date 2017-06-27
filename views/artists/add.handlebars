@@ -1,38 +1,56 @@
-<h2>Add Artist Info</h2>
+<section class="mt-4">
+    <h2>Add Artist Info</h2>
 
-<section>
-    <form class="" action="/artists/add" method="post">
+    <section>
+        <form class="" action="/artists/add" method="post">
 
-        <div>
-        <label for="artist">Artist or Band Name:</label>
-        <input type="text" name="name" placeholder="Add the artist name">
-        </div>
+            <div class="form-group">
+            <label for="name">Artist or Band Name:</label>
+            <input class="form-control" type="text" name="name" placeholder="Add the artist or band name" required>
+            </div>
 
-        <div>
-        <label for="genre">Genre</label>
-        <select class="" name="genres" multiple>
-            <option name="genre" value="Pop">Pop</option>
-            <option name="genre" value="R&B">R&B</option>
-            <option name="genre" value="Rock">Rock</option>
-            <option name="genre" value="Alternative">Alternative</option>
-            <option name="genre" value="Json">Use a json to import all genres</option>
-        </select>
-        </div>
+            <div class="form-group">
+            <label for="genres">Genre</label>
+            <select class="genre-options form-control" name="genres" style="min-height:120px" multiple required>
+                {{#each genre}}
+                  <option name="genre" value="{{this.name}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+            </div>
 
-        <div>
-        <label for="">Upload artist image</label>
-        <input type="text" name="imgurl">
-        </div>
+            <div class="form-group image-uploader">
+            <label for="imgurl">Add Artist Image</label>
+            {{!--
+            <select class="" name="">
+                <option value="urlupload">Upload by URL</option>
+                <option value="fileapi">Drag & Drop or Select File Your Computer</option>
 
-        <div>
-            <label for="artist-description">Description/Info</label>
-            <textarea name="description" rows="8" cols="80"></textarea>
+            </select>
+             --}}
+            <div class="url-upload">
+                <span>Upload file through a link</span>
+                <input class="form-control" type="url" name="imgurl" placeholder="http://path-to-image-file" value="">
+                <small class="form-text">Supported image types: .jpeg, .png, .gif</small>
+            </div>
+            {{!--
+            <div class="drag-dropper">
+                <span>Drag and Drop a file or Choose from the File picker</span>
+                <input type="file" name="imgfile">
+                <div><!-- drag and drop box -->/div>
+            </div>
+     --}}
 
-        </div>
-        {{!-- <button type="submit" name="button">Add New</button> --}}
-        <input type="submit" name="submit" value="Add New">
+            </div>
+            <div class="form-group">
+                <label for="description">Description/Info</label>
+                <textarea class="form-control" name="description" rows="8" cols="80" required></textarea>
+
+            </div>
+            <input class="btn btn-primary btn-sm" type="submit" name="submit" value="Add New">
 
 
 
-    </form>
+        </form>
+    </section>
+
 </section>
